@@ -83,7 +83,7 @@ file (as described in the `Jinja docs`_ or via a `Vim bundle`_) in the
 ``runtimepath``, and load that if found. If it is not found, the Django
 template syntax file (which is slightly different, but bundled with Vim) will
 be used. You can force using either syntax file using the global variable
-``g:sls_use_jinja_syntax``. If it is set, autodetection will be turned off.
+``g:yaml_use_jinja_syntax``. If it is set, autodetection will be turned off.
 
 .. _Jinja docs: http://jinja.pocoo.org/docs/integration/#vim
 .. _Vim bundle: https://github.com/Glench/Vim-Jinja2-Syntax
@@ -101,16 +101,16 @@ Example section of ``~/.vimrc``:
 .. code-block:: vim
 
     " Force using the Django template syntax file
-    let g:sls_use_jinja_syntax = 0
+    let g:yaml_use_jinja_syntax = 0
 
 Files
 =====
 
-``syntax/sls.vim``
-    Syntax file for editing YAML + Jinja SLS files.
+``syntax/yaml.vim``
+    Syntax file for editing YAML + Jinja yaml files.
 
-``ftplugin/sls.vim``
-    Filetype plugin with good default config for SLS files. Configures suitable
+``ftplugin/yaml.vim``
+    Filetype plugin with good default config for yaml files. Configures suitable
     wrapping, folding and indenting. Added features:
 
     - All tabs are converted to spaces.
@@ -123,8 +123,8 @@ Files
     - Improved indenting of YAML expressions with custom indenting function.
     - Visual warning for non-ASCII characters (which are not allowed in YAML).
 
-``ftdetect/sls.vim``
-    Detect SLS files by the file extension ``.sls``, and ``Saltfile`` files by
+``ftdetect/yaml.vim``
+    Detect yaml files by the file extension ``.yaml``, and ``Saltfile`` files by
     an exact filename match.
 
 Other VIM plugins you might find interesting

@@ -21,15 +21,15 @@ Vim files for working on Salt files
 %install
 mkdir -p %{buildroot}%{_defaultlicensedir}/%{name}-%{version}
 mkdir -p %{buildroot}%{_datarootdir}/vim/vimfiles/{syntax,ftdetect,ftplugin}
-cp syntax/sls.vim %{buildroot}%{_datarootdir}/vim/vimfiles/syntax/
-cp ftdetect/sls.vim %{buildroot}%{_datarootdir}/vim/vimfiles/ftdetect/
-cp ftplugin/sls.vim %{buildroot}%{_datarootdir}/vim/vimfiles/ftplugin/
+cp syntax/yaml.vim %{buildroot}%{_datarootdir}/vim/vimfiles/syntax/
+cp ftdetect/yaml.vim %{buildroot}%{_datarootdir}/vim/vimfiles/ftdetect/
+cp ftplugin/yaml.vim %{buildroot}%{_datarootdir}/vim/vimfiles/ftplugin/
 cp LICENSE %{buildroot}%{_defaultlicensedir}/%{name}-%{version}
 
 %files
-%{_datarootdir}/vim/vimfiles/syntax/sls.vim
-%{_datarootdir}/vim/vimfiles/ftdetect/sls.vim
-%{_datarootdir}/vim/vimfiles/ftplugin/sls.vim
+%{_datarootdir}/vim/vimfiles/syntax/yaml.vim
+%{_datarootdir}/vim/vimfiles/ftdetect/yaml.vim
+%{_datarootdir}/vim/vimfiles/ftplugin/yaml.vim
 %{_defaultlicensedir}/%{name}-%{version}/LICENSE
 %doc
 

@@ -25,9 +25,9 @@ unlet b:current_syntax
 " Default to look for Jinja syntax file
 let s:load_jinja_syntax = 0
 let s:search_for_jinja_syntax = 1
-if exists("g:sls_use_jinja_syntax")
+if exists("g:yaml_use_jinja_syntax")
   let s:search_for_jinja_syntax = 0
-  let s:load_jinja_syntax = g:sls_use_jinja_syntax
+  let s:load_jinja_syntax = g:yaml_use_jinja_syntax
 endif
 if s:search_for_jinja_syntax
   let s:jinja_path = findfile("syntax/jinja.vim", &rtp, 1)
@@ -39,12 +39,12 @@ endif
 if s:load_jinja_syntax
   syntax include @Jinja syntax/jinja.vim
 
-  syn cluster jinjaSLSBlocks add=jinjaTagBlock,jinjaVarBlock,jinjaComment
+  syn cluster jinjayamlBlocks add=jinjaTagBlock,jinjaVarBlock,jinjaComment
   " Mostly copy/pasted from
   " https://github.com/mitsuhiko/jinja2/blob/6b7c0c23/ext/Vim/jinja.vim
-  syn region jinjaTagBlock matchgroup=jinjaTagDelim start=/{%-\?/ end=/-\?%}/ containedin=ALLBUT,jinjaTagBlock,jinjaVarBlock,jinjaRaw,jinjaString,jinjaNested,jinjaComment,@jinjaSLSBlocks
-  syn region jinjaVarBlock matchgroup=jinjaVarDelim start=/{{-\?/ end=/-\?}}/ containedin=ALLBUT,jinjaTagBlock,jinjaVarBlock,jinjaRaw,jinjaString,jinjaNested,jinjaComment,@jinjaSLSBlocks
-  syn region jinjaComment matchgroup=jinjaCommentDelim start="{#" end="#}" containedin=ALLBUT,jinjaTagBlock,jinjaVarBlock,jinjaString,@jinjaSLSBlocks
+  syn region jinjaTagBlock matchgroup=jinjaTagDelim start=/{%-\?/ end=/-\?%}/ containedin=ALLBUT,jinjaTagBlock,jinjaVarBlock,jinjaRaw,jinjaString,jinjaNested,jinjaComment,@jinjayamlBlocks
+  syn region jinjaVarBlock matchgroup=jinjaVarDelim start=/{{-\?/ end=/-\?}}/ containedin=ALLBUT,jinjaTagBlock,jinjaVarBlock,jinjaRaw,jinjaString,jinjaNested,jinjaComment,@jinjayamlBlocks
+  syn region jinjaComment matchgroup=jinjaCommentDelim start="{#" end="#}" containedin=ALLBUT,jinjaTagBlock,jinjaVarBlock,jinjaString,@jinjayamlBlocks
 else
   " Fall back to Django template syntax
   syntax include @Jinja syntax/django.vim
@@ -65,7 +65,7 @@ syn keyword salt_stateErrors requires requires_in watches watches_in includes ex
 highlight link salt_stateErrors Error
 
 let g:NERDCustomDelimiters = {
-  \ 'sls': { 'left': '#' },
+  \ 'yaml': { 'left': '#' },
 \ }
 
-let b:current_syntax = "sls"
+let b:current_syntax = "yaml"

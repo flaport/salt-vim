@@ -48,14 +48,14 @@ setlocal foldmethod=indent
 setlocal foldlevel=20  " by default do not fold
 
 
-" Visual warning about UTF8 characters in SLS file.
+" Visual warning about UTF8 characters in yaml file.
 " salt does not like them much, so they should be red
-augroup utfsls
+augroup utfyaml
   autocmd!
-  highlight UTFsls ctermbg=red guibg=red
-  match UTFsls /[\x7F-\xFF]/
-  autocmd BufWinEnter <buffer> match UTFsls /[\x7F-\xFF]/
-  autocmd InsertEnter <buffer> match UTFsls /[\x7F-\xFF]/
-  autocmd InsertLeave <buffer> match UTFsls /[\x7F-\xFF]/
+  highlight UTFyaml ctermbg=red guibg=red
+  match UTFyaml /[\x7F-\xFF]/
+  autocmd BufWinEnter <buffer> match UTFyaml /[\x7F-\xFF]/
+  autocmd InsertEnter <buffer> match UTFyaml /[\x7F-\xFF]/
+  autocmd InsertLeave <buffer> match UTFyaml /[\x7F-\xFF]/
   autocmd BufWinLeave <buffer> call clearmatches()
 augroup END
